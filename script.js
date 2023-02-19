@@ -4,19 +4,20 @@ var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "~", "?", "<", ">", "`", "+", "=", "-", "_", "[", "]", "{", "}", "|", "'", "/"];
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-var password = [""];
+
 
 
 function generatePassword() {
+  var password = [""];
   //Password length Prompt
   var passLength = prompt("How long would you like your password? Please type number between 8 and 128");
-  if (passLength < 8 || passLength > 128 || passLength == "") {
+  if (passLength === null) { 
+    return;
+  } 
+  else if (passLength < 8 || passLength > 128 || passLength == "") {
     alert("Password Length needs to be between 8 and 128, please try again.");
     return
   }
-  else if (passLength === null) { //<<< Look at this for cancel button pressed 
-    return;
-  } 
 
   //Setting the character list to randomly select from
   var characterList = alphaLower
