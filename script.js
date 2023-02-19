@@ -25,7 +25,10 @@ function generatePassword() {
   // Uppercase Prompt
   var upperChoice = prompt("Your Password will be " + passLength + " characters long.\nWould you like to use Uppercase Letters in your Password? Please type yes or no.");
   upperChoice = upperChoice.toUpperCase();
-  if (upperChoice !== "NO" && upperChoice !== "YES") {
+  if (upperChoice === null) { 
+    return;
+  } 
+  else if (upperChoice !== "NO" && upperChoice !== "YES") {
     alert("Please type yes or no to decide if you would like Uppercase Letters in your password. Please try again.");
     return
   }
@@ -42,7 +45,10 @@ function generatePassword() {
   }
 
   numberChoice = numberChoice.toUpperCase();
-  if (numberChoice !== "NO" && numberChoice !== "YES") {
+  if (numberChoice === null) { 
+    return;
+  } 
+  else if (numberChoice !== "NO" && numberChoice !== "YES") {
     alert("Please type yes or no to decide if you would like Numbers in your password. Please try again.");
     return
   }
@@ -59,7 +65,10 @@ function generatePassword() {
   }
 
   specialChoice = specialChoice.toUpperCase();
-  if (specialChoice !== "NO" && specialChoice !== "YES") {
+  if (specialChoice === null) { 
+    return;
+  } 
+  else if (specialChoice !== "NO" && specialChoice !== "YES") {
     alert("Please type yes or no to decide if you would like Special Characters in your password. Please try again.");
     return
   }  
