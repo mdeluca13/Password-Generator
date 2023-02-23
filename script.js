@@ -14,13 +14,13 @@ function generatePassword() {
   if (passLength === null) { 
     return;
   } 
-  else if (passLength < 8 || passLength > 128 || passLength == "") {
+  else if (passLength < 8 || passLength > 128) {
     alert("Password Length needs to be between 8 and 128, please try again.");
     return
   }
 
   //Setting the character list to randomly select from
-  var characterList = alphaLower
+  var characterList = [""];
 
   // Uppercase Prompt
   var upperChoice = prompt("Your Password will be " + passLength + " characters long.\nWould you like to use Uppercase Letters in your Password? Please type yes or no.");
@@ -32,16 +32,34 @@ function generatePassword() {
     alert("Please type yes or no to decide if you would like Uppercase Letters in your password. Please try again.");
     return
   }
-
-  // Number Prompt
+  // Lowercase Prompt
   if (upperChoice === "NO") {
-    var numberChoice = prompt("Your Password will not include Uppercase Letters.\nWould you like to use numbers in your Password? Please type yes or no.");
+    var lowerChoice = prompt("Your Password will not include Uppercase Letters.\nWould you like to use lowercase letters in your Password? Please type yes or no.");
   }
   else if (upperChoice === "YES") {
-    numberChoice = prompt("Your Password will include Uppercase Letters.\nWould you like to use numbers in your Password? Please type yes or no.");
-
+    lowerChoice = prompt("Your Password will include Uppercase Letters.\nWould you like to use lowercase letters in your Password? Please type yes or no.");
     // Adding uppercase letters to characterList
     characterList = characterList.concat(alphaUpper);
+  }
+  lowerChoice = lowerChoice.toUpperCase();
+  if (lowerChoice === null) { 
+    return;
+  } 
+  else if (lowerChoice !== "NO" && lowerChoice !== "YES") {
+    alert("Please type yes or no to decide if you would like Numbers in your password. Please try again.");
+    return
+  }
+
+
+  // Number Prompt
+  if (lowerChoice === "NO") {
+    var numberChoice = prompt("Your Password will not include Lowercase Letters.\nWould you like to use numbers in your Password? Please type yes or no.");
+  }
+  else if (lowerChoice === "YES") {
+    numberChoice = prompt("Your Password will include Lowercase Letters.\nWould you like to use numbers in your Password? Please type yes or no.");
+
+    // Adding lowercase letters to characterList
+    characterList = characterList.concat(alphaLower);
   }
 
   numberChoice = numberChoice.toUpperCase();
